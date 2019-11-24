@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $1 ]
+then
+    echo "Deploy to $1"
+    ENV=$1 vendor/bin/deployment deployment.$1.ini
+else
+    echo "Faltou informar o local para deploy - ex: ./scripts/deploy homologacao"
+fi

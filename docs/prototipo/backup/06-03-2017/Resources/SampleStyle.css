@@ -1,0 +1,12 @@
+/*
+    place extra stylesheet here
+*/
+
+body
+{
+	padding:0px;
+	margin:0px;
+}
+.ImageContainer img {
+    border: solid 0px #999;
+}

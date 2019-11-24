@@ -1,0 +1,160 @@
+#topo
+{
+    background-color: #34558c;
+    height: 47px;
+    border-top: solid 4px #1766a8;
+}
+.area_1200
+{
+    width: 1200px;
+    text-align: left;
+	position:relative;
+}
+#topo #logo_pms
+{
+    height: 43px;
+    width: 281px;
+    float: left;
+	background-image: url("../images/logo_pms.png");
+}
+#topo #redes
+{
+    width: 165px;
+    float: right;
+    margin-top: 4px;
+}
+#topo #redes #facebook
+{
+    height: 34px;
+    width: 35px;
+    float: left;
+	margin-left:5px;
+	background-image: url("../images/facebook.jpg");
+}
+#topo #redes #youtube
+{
+    height: 34px;
+    width: 35px;
+    float: left;
+	margin-left:5px;
+	background-image: url("../images/youtube.jpg");
+}
+#topo #redes #flickr
+{
+    height: 34px;
+    width: 35px;
+    float: left;
+	margin-left:5px;
+	background-image: url("../images/flickr.jpg");
+}
+#topo #redes #twitter
+{
+    height: 34px;
+    width: 35px;
+    float: left;
+	margin-left:5px;
+	background-image: url("../images/twitter.jpg");
+}
+#cabecalho
+{
+    height: 85px;
+    background-image: url("../images/back_cabecalho.jpg");
+    background-repeat: repeat-x;
+	color:#FFF;
+}
+#cabecalho #logo_secretaria
+{
+    float: left;
+    margin-top: 25px;
+}
+
+#cabecalho #logo_sistema
+{
+	/*
+	background-image: url("../images/censoprevis.png");
+	width:416px;
+	height:416px;	
+    background-repeat: no-repeat;
+	*/
+	padding-top:5px;
+}
+
+#cabecalho #nome_sistema
+{
+    font-size: 33px;
+    font-weight: bold;
+    left: 438px;
+    margin-left: 5px;
+    position: absolute;
+    text-align: right;
+    top: 18px;
+    width: 750px
+}
+
+#cabecalho #publicidade
+{
+    float: left;
+    width: 727px;
+    height: 90px;
+    margin-left: 85px;
+    margin-top: 20px;
+}
+#menu
+{
+    height: 46px;
+    background-image: url("../images/back_menu.jpg");
+    background-repeat: repeat-x;    
+}
+#menu #opcoes_menu
+{    
+    color: #fff;
+    font-family: arial;
+    padding-top: 16px;
+    float: left;
+}
+#menu #opcoes_menu a
+{    
+    text-decoration: none;
+}
+#menu #busca
+{
+    float: right;
+    margin-top: 12px;
+}
+#opcoes_menu span
+{
+    color: #fff;
+    font-size: 15px;    
+    font-weight: bold;
+    padding-top: 16px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 13px;
+    transition: opacity .25s ease-in-out;
+}
+#opcoes_menu span:hover
+{
+    background-color: #f8f8f8;
+    color: #2364b6;    
+    cursor: pointer;
+    
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 8px 8px 0px 0px;
+    border-radius: 8px 8px 0px 0px; 
+    
+}
+#opcoes_menu span a
+{
+    color: #fff;
+    font-size: 15px;    
+    font-weight: bold;
+    text-decoration: none;
+}
+#opcoes_menu span a:hover
+{
+    color: #2364b6;    
+    cursor: pointer;
+}
