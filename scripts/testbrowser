@@ -1,0 +1,6 @@
+#! /bin/bash
+phantomjs --webdriver=4444 &
+sleep 5
+php artisan serve &
+sleep 1
+./vendor/bin/codecept run acceptance $@

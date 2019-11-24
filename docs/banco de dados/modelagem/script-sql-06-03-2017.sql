@@ -1,0 +1,249 @@
+
+CREATE SEQUENCE TIPO_CARGO_ID_SEQ;
+
+CREATE TABLE tipo_cargo (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(20) NOT NULL,
+                CONSTRAINT TIPO_CARGO_PK PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE TIPO_ESTRUTURA_ORGANIZACION450;
+
+CREATE TABLE tipo_estrutura_organizacional (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(20) NOT NULL,
+                CONSTRAINT TIPO_ESTRUTURA_ORGANIZACION730 PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE PERFIL_ID_SEQ_1;
+
+CREATE TABLE perfil (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(30) NOT NULL,
+                CONSTRAINT PERFIL_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tipo_ato_normativo (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(15) NOT NULL,
+                CONSTRAINT TIPO_ATO_NORMATIVO_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tipo_hierarquia (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(30) NOT NULL,
+                id_tipo_estrutura NUMBER NOT NULL,
+                CONSTRAINT TIPO_HIERARQUIA_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE natureza_juridica (
+                id NUMBER NOT NULL,
+                id_tipo_hierarquia NUMBER NOT NULL,
+                descricao VARCHAR2(30) NOT NULL,
+                CONSTRAINT NATUREZA_JURIDICA_PK PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE SITUACAO_ESTRUTURA_ORGANIZA150;
+
+CREATE TABLE situacao_estrutura_organizacio (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(15) NOT NULL,
+                CONSTRAINT SITUACAO_ESTRUTURA_ORGANIZA886 PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tipo_acao_ato_normativo (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(50) NOT NULL,
+                CONSTRAINT TIPO_ACAO_ATO_NORMATIVO_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE ato_normativo (
+                id NUMBER NOT NULL,
+                id_tipo_ato_normativo NUMBER NOT NULL,
+                id_tipo_acao_ato_normativo NUMBER NOT NULL,
+                descricao VARCHAR2(50) NOT NULL,
+                data DATE NOT NULL,
+                observacao LONG NOT NULL,
+                CONSTRAINT ATO_NORMATIVO_PK PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE ENDERECO_ID_SEQ;
+
+CREATE TABLE endereco (
+                id NUMBER NOT NULL,
+                descricao VARCHAR2(50) NOT NULL,
+                logradouro VARCHAR2(100) NOT NULL,
+                complemento VARCHAR2(500) NOT NULL,
+                cep VARCHAR2(8) NOT NULL,
+                CONSTRAINT ENDERECO_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE estrutura_organizacional (
+                id NUMBER NOT NULL,
+                id_estrutura_pai NUMBER NOT NULL,
+                id_ato_normativo NUMBER NOT NULL,
+                id_sit_estr_organizacional NUMBER NOT NULL,
+                id_endereco NUMBER NOT NULL,
+                id_tipo_hierarquia NUMBER NOT NULL,
+                descricao VARCHAR2(200) NOT NULL,
+                sigla VARCHAR2(50) NOT NULL,
+                competencia VARCHAR2(4000) NOT NULL,
+                fiinalidade VARCHAR2(4000) NOT NULL,
+                telefone VARCHAR2(15) NOT NULL,
+                email VARCHAR2(150) NOT NULL,
+                data_ini DATE NOT NULL,
+                data_fim DATE,
+                CONSTRAINT ESTRUTURA_ORGANIZACIONAL_PK PRIMARY KEY (id)
+);
+
+
+CREATE TABLE hist_estrutura_organizacional (
+                id NUMBER NOT NULL,
+                id_est_organizacional NUMBER NOT NULL,
+                id_estrutura_pai NUMBER NOT NULL,
+                id_tipo_hierarquia NUMBER NOT NULL,
+                id_ato_normativo NUMBER NOT NULL,
+                id_endereco NUMBER NOT NULL,
+                competencia_old VARCHAR2(4000) NOT NULL,
+                finalidade_old VARCHAR2(4000) NOT NULL,
+                sigla_old VARCHAR2(20) NOT NULL,
+                descricao_old VARCHAR2(100) NOT NULL,
+                data_ini_old DATE NOT NULL,
+                data_fim_old DATE NOT NULL,
+                CONSTRAINT HIST_ESTRUTURA_ORGANIZACION616 PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE CARGO_ID_SEQ;
+
+CREATE TABLE cargo (
+                id NUMBER NOT NULL,
+                id_est_organizacional NUMBER NOT NULL,
+                id_tipo_cargo NUMBER NOT NULL,
+                id_ato_normativo NUMBER NOT NULL,
+                descricao VARCHAR2(100) NOT NULL,
+                atribuicao VARCHAR2(200) NOT NULL,
+                qtde NUMBER NOT NULL,
+                grau NUMBER NOT NULL,
+                CONSTRAINT CARGO_PK PRIMARY KEY (id)
+);
+
+
+CREATE SEQUENCE CARGO_UNIDADE_ID_CARGO_UNID531;
+
+CREATE TABLE cargo_unidade (
+                id_cargo_unidade NUMBER NOT NULL,
+                id_cargo NUMBER NOT NULL,
+                id_estrutura_organizacional NUMBER NOT NULL,
+                qtde NUMBER NOT NULL,
+                CONSTRAINT CARGO_UNIDADE_PK PRIMARY KEY (id_cargo_unidade)
+);
+
+
+CREATE SEQUENCE USUARIO_ID_SEQ;
+
+CREATE TABLE usuario (
+                id NUMBER NOT NULL,
+                id_orgao NUMBER NOT NULL,
+                id_perfil NUMBER NOT NULL,
+                descricao VARCHAR2(50) NOT NULL,
+                email VARCHAR2(70) NOT NULL,
+                senha VARCHAR2(40) NOT NULL,
+                CONSTRAINT USUARIO_PK PRIMARY KEY (id)
+);
+
+
+ALTER TABLE cargo ADD CONSTRAINT TIPO_CARGO_CARGO_FK
+FOREIGN KEY (id_tipo_cargo)
+REFERENCES tipo_cargo (id)
+NOT DEFERRABLE;
+
+ALTER TABLE tipo_hierarquia ADD CONSTRAINT TIPO_ESTRUTURA_ORGANIZACION717
+FOREIGN KEY (id_tipo_estrutura)
+REFERENCES tipo_estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE usuario ADD CONSTRAINT PERFIL_USUARIO_FK
+FOREIGN KEY (id_perfil)
+REFERENCES perfil (id)
+NOT DEFERRABLE;
+
+ALTER TABLE ato_normativo ADD CONSTRAINT TIPO_ATO_ATO_NORMATIVO_FK
+FOREIGN KEY (id_tipo_ato_normativo)
+REFERENCES tipo_ato_normativo (id)
+NOT DEFERRABLE;
+
+ALTER TABLE natureza_juridica ADD CONSTRAINT TIPO_HIERARQUIA_NATUREZA_JU303
+FOREIGN KEY (id_tipo_hierarquia)
+REFERENCES tipo_hierarquia (id)
+NOT DEFERRABLE;
+
+ALTER TABLE estrutura_organizacional ADD CONSTRAINT TIPO_HIERARQUIA_ESTRUTURA_O662
+FOREIGN KEY (id_tipo_hierarquia)
+REFERENCES tipo_hierarquia (id)
+NOT DEFERRABLE;
+
+ALTER TABLE estrutura_organizacional ADD CONSTRAINT SITUACAO_ENTIDADE_ADM_FK
+FOREIGN KEY (id_sit_estr_organizacional)
+REFERENCES situacao_estrutura_organizacio (id)
+NOT DEFERRABLE;
+
+ALTER TABLE ato_normativo ADD CONSTRAINT TIPO_ACAO_ATO_NORMATIVO_ATO615
+FOREIGN KEY (id_tipo_acao_ato_normativo)
+REFERENCES tipo_acao_ato_normativo (id)
+NOT DEFERRABLE;
+
+ALTER TABLE estrutura_organizacional ADD CONSTRAINT ATO_NORMATIVO_ESTRUTURA_FK
+FOREIGN KEY (id_ato_normativo)
+REFERENCES ato_normativo (id)
+NOT DEFERRABLE;
+
+ALTER TABLE cargo ADD CONSTRAINT ATO_NORMATIVO_CARGO_FK
+FOREIGN KEY (id_ato_normativo)
+REFERENCES ato_normativo (id)
+NOT DEFERRABLE;
+
+ALTER TABLE estrutura_organizacional ADD CONSTRAINT ENDERECO_ESTRUTURA_ADM_FK
+FOREIGN KEY (id_endereco)
+REFERENCES endereco (id)
+NOT DEFERRABLE;
+
+ALTER TABLE usuario ADD CONSTRAINT ENTIDADE_ADM_USUARIO_FK
+FOREIGN KEY (id_orgao)
+REFERENCES estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE cargo ADD CONSTRAINT ESTRUTURA_ORGANIZACIONAL_CA370
+FOREIGN KEY (id_est_organizacional)
+REFERENCES estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE hist_estrutura_organizacional ADD CONSTRAINT ESTRUTURA_ORGANIZACIONAL_HI412
+FOREIGN KEY (id_est_organizacional)
+REFERENCES estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE estrutura_organizacional ADD CONSTRAINT ESTRUTURA_ORGANIZACIONAL_ES309
+FOREIGN KEY (id_estrutura_pai)
+REFERENCES estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE cargo_unidade ADD CONSTRAINT ESTR_ORGA_CARGO_UNIDADE_FK
+FOREIGN KEY (id_estrutura_organizacional)
+REFERENCES estrutura_organizacional (id)
+NOT DEFERRABLE;
+
+ALTER TABLE cargo_unidade ADD CONSTRAINT CARGO_CARGO_UNIDADE_FK
+FOREIGN KEY (id_cargo)
+REFERENCES cargo (id)
+NOT DEFERRABLE;

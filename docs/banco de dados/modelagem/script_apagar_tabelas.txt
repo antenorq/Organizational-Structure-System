@@ -1,0 +1,44 @@
+
+
+//SELECIONA AS TABELAS
+select * from dba_tables where owner = 'USR_ONTOTITA_HOMO'
+
+
+//APAGA AS TABELAS
+drop table "USR_ONTOTITA_HOMO"."CARGO" cascade constraints  
+
+
+drop table ESTRUTURA_ORGANIZACIONAL cascade constraints  ;
+drop table FUNCAO cascade constraints  ;
+drop table CARGO cascade constraints  ;
+drop table HIST_ESTRUTURA_ORGANIZACIONAL cascade constraints  ;
+drop table ENDERECO cascade constraints  ;
+drop table USUARIO cascade constraints  ;
+drop table CARGO_UNIDADE cascade constraints  ;
+drop table ATO_NORMATIVO cascade constraints  ;
+drop table TIPO_ACAO_ATO_NORMATIVO cascade constraints  ;
+drop table SITUACAO_ESTRUTURA_ORGANIZACIO cascade constraints  ;
+drop table NATUREZA_JURIDICA cascade constraints  ;
+drop table TIPO_HIERARQUIA cascade constraints  ;
+drop table TIPO_ATO_NORMATIVO cascade constraints  ;
+drop table TIPO_ESTRUTURA_ORGANIZACIONAL cascade constraints  ;
+drop table TIPO_CARGO cascade constraints  ;
+drop table PERFIL cascade constraints  ; 
+
+
+
+
+
+DROP SEQUENCE CARGO_ID_SEQ;
+DROP SEQUENCE CARGO_UNIDADE_ID_CARGO_UNID531;
+DROP SEQUENCE ENDERECO_ID_SEQ;
+DROP SEQUENCE ESTRUTURA_ORG_ID_SEQ;
+DROP SEQUENCE FUNCAO_ID_SEQ;
+DROP SEQUENCE PERFIL_ID_SEQ_1;
+DROP SEQUENCE MIGRATIONS_ID_SEQ;
+DROP SEQUENCE SITUACAO_ESTRUTURA_ORGANIZA150;
+DROP SEQUENCE TIPO_CARGO_ID_SEQ;
+DROP SEQUENCE TIPO_ESTRUTURA_ORGANIZACION450;
+DROP SEQUENCE USERS_ID_SEQ;
+DROP SEQUENCE USUARIO_ID_SEQ;
+DROP SEQUENCE ATRIBUICAO_CARGO_ID_ATRIBUI780;

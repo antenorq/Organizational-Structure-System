@@ -1,0 +1,168 @@
+* {
+	font-family: Verdana;
+	font-size: 13px;
+}
+
+body
+{
+	line-height: 1.6 !important;
+	color: #555 !important;
+	background-color: #fff !important;
+}
+
+
+/*
+@page
+{
+	margin: 1cm;
+}
+
+
+@page land {
+  size: landscape;
+}
+ 
+
+@media print
+{	
+	#landscape
+	{
+  		page: land;
+	}
+}
+*/
+
+#geral
+{
+	width:800px;
+	text-align:left;
+	/*border: solid 1px #000;*/
+}
+
+#capa
+{
+	/*width:1000px;*/
+	position: relative;
+	text-align: left;
+}
+
+#capa img
+{
+	width: 800px;	
+	/*border: solid 3px #ccc;*/
+}
+
+#capa #nome_descricao_orgao_capa
+{
+	color: #000;
+    left: 289px;
+    position: absolute;
+    top: 429px;
+}
+
+.organograma
+{
+	
+}
+
+.orgao-atributos {
+	
+	margin-top: 20px;
+}
+
+.width-orgao-atributos
+{
+	width: 200px;
+	font-weight: bold;
+}
+
+.estrutura-basica
+{
+	text-align: left;
+}
+
+#image-title-page-first {
+	width: 580px;
+	height: 180px;
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
+
+.header-page {
+	text-align: left ;
+}
+
+.header-page p {
+	font-size: 14px;
+	margin-bottom: -2px;
+	margin-top: -2px;
+	font-family: Arial;
+}
+
+.title {
+	background-color: #CCC !important;
+	color: #000 !important;
+	padding: 5px;
+}
+
+.caput {
+	float: right;
+	width: 400px;
+}
+
+.nome-prefeito {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.nome-gestor {
+	font-size: 15px;
+	width: 50%;
+	padding:15px;
+}
+
+#area-quadro-cargos-funcoes {
+	text-align: left;
+}
+
+.tabela-cargos-funcoes {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.tabela-cargos-funcoes th {
+	background: #888 !important;
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+.tabela-cargos-funcoes tr:nth-child(odd) {
+	background: #ccc !important;
+}
+
+.tabela-cargos-funcoes td {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+#content-legislacao
+{
+	text-align: left;
+}
+
+.page_break { 
+	page-break-before: always; 
+}
+
+.clear
+{
+	clear: both;
+}
+.justify
+{
+	text-align: justify;
+}
